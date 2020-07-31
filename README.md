@@ -4,8 +4,11 @@ fuzzer from the first day of "Fuzz Week 2020":
 https://www.youtube.com/watch?v=2xXt_q3Fex8
 
 @gamozolabs https://twitter.com/gamozolabs
+
 @gamozolabs https://github.com/gamozolabs
+
 @gamozolabs https://twitch.tv/gamozolabs
+
 @gamozolabs https://www.youtube.com/channel/UC17ewSS9f2EnkCyMztCdoKA
 
 If you don't want to waste loads of writes on a HDD/SSD, 
