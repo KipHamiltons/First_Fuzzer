@@ -26,6 +26,10 @@ kernel calls anyway.
 #    although a linux kernel will probably bottleneck this if it can go any higher.
 NUM_PROCESSES = 5
 
+# Change this path to control which binutil binary you use
+# (Doesn't have to be objdump, or even a binutil, it just has to take a file as command line input)
+BIN_UTIL_PATH = "./binutils-gdb/binutils/objdump"
+
 CORPUS_PATH = "./corpus/"
 TEMP_PATH = "./temp/"
 CRASHED_PATH = "./crashed/"
@@ -48,12 +52,12 @@ def fuzz(file_selection_data, thr_id):
 
     # run objdump (or some other binutil)
     # return_code is the exit status. 0 => no error. +- 11 => SIGSEGV
-    return_code = subprocess.run(['./binutils-gdb/binutils/objdump', 
-                                        '-xd', # flags -> -x does all headers, and -d disassembles the code
-                                        TEMP_PATH + hashed_path], 
-                                        stdout=subprocess.DEVNULL,
-                                        stderr=subprocess.DEVNULL
-                                        ).returncode # The actual linux shell command exit code, as would be assigned to $?
+    return_code = subprocess.run([BIN_UTIL_PATH,
+                                    '-xd', # flags -> -x does all headers, and -d disassembles the code
+                                    TEMP_PATH + hashed_path], 
+                                    stdout=subprocess.DEVNULL,
+                                    stderr=subprocess.DEVNULL
+                                    ).returncode # The actual linux shell command exit code, as would be assigned to $?
 
     # delete the temp file $PWD/temp/hash
     subprocess.run(['rm', TEMP_PATH + hashed_path])
