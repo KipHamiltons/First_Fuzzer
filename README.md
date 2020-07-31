@@ -22,7 +22,7 @@ kernel calls anyway.
 2.  change into the repo's root directory `cd First_Fuzzer`
 3.  create the necessary directories `mkdir crashed temp corpus`
 4.  Copy the fuzzer inputs (binaries) into the corpus directory
-5.  If you are happy using your standard objdump binary, skip to step 8
+5.  If you are happy using your standard objdump binary, skip to step 10
 6.  clone binutils-gdb `git clone git clone git://sourceware.org/git/binutils-gdb.git`
 7.  change into the binutils directory `cd binutils-gdb`
 8.  Build the binutils `./configure && make`
